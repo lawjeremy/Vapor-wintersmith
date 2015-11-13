@@ -16,7 +16,6 @@
 
     {{#if pagination.next}}<link href="{{pageUrl pagination.next}}" rel="prefetch" />{{/if}}
 
-    {{ghost_head}}
 </head>
 <body class="{{body_class}}">
 
@@ -34,11 +33,9 @@
             {{!> footer-description}}
             <section class="copyright">&copy; {{date format="YYYY"}} <a href="/">{{@blog.title}}</a>. All rights reserved.</section>
             <section>Vapor theme by <a href="http://sethlilly.com/">Seth Lilly</a></section>
-            <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org/"><span class="hidden">Ghost</span></a></section>
+            <section class="poweredby">Proudly published with <span class="hidden">Wintersmith</span></a></section>
         </div>
     </footer>
-
-    {{ghost_foot}}
 
     <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
 
