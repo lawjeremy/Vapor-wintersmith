@@ -2,21 +2,21 @@
 
 <main class="content" role="main">
 
-    {{#foreach posts}}
+    {{#each articles}}
 
-    <article class="preview">
-        <header>
-            <h1 class="post-title"><a href="{{url}}">{{{title}}}</a></h1>
-            <div class="post-meta"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="dddd, MMMM DD, YYYY"}}</time></div>
-        </header>
-        <section class="post-excerpt">
-            <p>{{excerpt}}&hellip;</p>
-            <p class="readmore"><a href="{{url}}">Read this article <i class="fa fa-chevron-circle-right"></i></a></p>
-        </section>
-    </article>
+        <article class="preview">
+            <header>
+                <h1 class="post-title"><a href="{{url}}">{{{title}}}</a></h1>
+                <div class="post-meta"><time datetime="{{dateFormat this.metadata.date "dddd, MMMM DD, YYYY"}}">{{dateFormat this.metadata.date "dddd, MMMM DD, YYYY"}}</time></div>
+            </header>
+            <section class="post-excerpt">
+                <p>{{{this.intro}}}&hellip;</p>
+                <p class="readmore"><a href="{{url}}">Read this article <i class="fa fa-chevron-circle-right"></i></a></p>
+            </section>
+        </article>
 
-    {{/foreach}}
+    {{/each}}
 
-    {{pagination}}
+    {{> pagination}}
 
 </main>

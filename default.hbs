@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>{{meta_title}}</title>
+    <title>{{title}}</title>
     <meta name="description" content="{{meta_description}}" />
 
     <meta name="HandheldFriendly" content="True" />
@@ -14,16 +14,17 @@
     <link rel="stylesheet" type="text/css" href="{{asset "css/normalize.css"}}" />
     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
 
-    {{#if pagination.next}}<link href="{{pageUrl pagination.next}}" rel="prefetch" />{{/if}}
+    {{#if nextPage}}<link href="{{nextPage.url}}" rel="prefetch" />{{/if}}
 
 </head>
 <body class="{{body_class}}">
 
     <header id="site-head">
-        {{#if @blog.logo}}<a id="blog-logo" href="{{@blog.url}}"><div class="bloglogo" style="background: url({{@blog.logo}})"></div></a>{{/if}}
-        <h1 class="blog-title"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+        {{#if logo}}<a id="blog-logo" href="{{url}}"><div class="bloglogo" style="background: url({{logo}})"></div></a>{{/if}}
+        <h1 class="blog-title"><a href="{{url}}">{{name}}</a></h1>
         {{> header-description}}
         {{!> menu}}
+
     </header>
 
     {{{body}}}
@@ -31,12 +32,13 @@
     <footer class="site-footer">
         <div class="inner">
             {{!> footer-description}}
-            <section class="copyright">&copy; {{date format="YYYY"}} <a href="/">{{@blog.title}}</a>. All rights reserved.</section>
+            <section class="copyright">&copy; {{dateFormat "2015" "YYYY"}} <a href="/">{{name}}</a>. All rights reserved.</section>
             <section>Vapor theme by <a href="http://sethlilly.com/">Seth Lilly</a></section>
-            <section class="poweredby">Proudly published with <span class="hidden">Wintersmith</span></a></section>
+            <section class="poweredby">Proudly published with Wintersmith</section>
         </div>
     </footer>
 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js" />
     <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
 
 </body>
